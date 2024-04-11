@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #b3f2fb;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-weight: bold;
+        }
+
+        .price {
+            margin-top: 5px;
+        }
+
+        .remove-btn {
+            background-color: #ff6347;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Cart</h1>
+
+    <div id="cart-items"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    displayCartItems();
+});
+
+function displayCartItems() {
+    // Get the cart items from local storage
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    // Display cart items
+    let cartItemsDiv = document.getElementById('cart-items');
+    cartItemsDiv.innerHTML = '';
+
+    cartItems.forEach((item, index) => {
+        // Create HTML for each cart item
+        let itemDiv = document.createElement('div');
+        itemDiv.classList.add('cart-item');
+        itemDiv.innerHTML = `
+            <p class="title">Title: ${item.title}</p>
+            <p class="price">Price: ${item.price}</p>
+            <button class="remove-btn" onclick="removeFromCart(${index})">Remove from Cart</button>
+        `;
+        cartItemsDiv.appendChild(itemDiv);
+    });
+}
+
+function removeFromCart(index) {
+    // Get the current cart items from local storage
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    // Remove the item at the specified index
+    cartItems.splice(index, 1);
+
+    // Store the updated cart items back to local storage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    // Refresh the cart display
+    displayCartItems();
+}
+</script>
+
+</body>
+</html>

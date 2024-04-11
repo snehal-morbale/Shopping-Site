@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+/* Hide default checkbox */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 2px solid #000; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    outline: none;
+    cursor: pointer;
+    margin-right: 5px; /* Add some spacing between checkbox and label */
+}
+
+/* Custom checkbox checked state */
+input[type="checkbox"]:checked::before {
+    content: "\2713"; /* Unicode character for checkmark */
+    font-size: 14px; /* Adjust size as needed */
+    line-height: 20px; /* Vertically center checkmark */
+    color: #fff; /* Color of checkmark */
+    text-align: center;
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    background-color: #000; /* Background color when checked */
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Hover effect for checkbox */
+input[type="checkbox"]:hover {
+    border-color: #f3f0f0; /* Change border color on hover */
+}
+
+/* Checked state hover effect */
+input[type="checkbox"]:checked:hover::before {
+    background-color: #fbf0f0; /* Change background color when checked and hovered */
+}
+
+/* Apply checkbox styling to labels */
+label.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add margin between checkboxes */
+}
+
+body {
+   background-color: white;
+}
+
+h1 {
+    text-align: center;
+    padding: 40px 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.main {
+    width: 1320px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filterBox {
+    flex-basis: 15%;
+    margin-left: 2%;
+}
+
+.product {
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.categoryList {
+    margin-top: 20px;
+}
+
+.categoryList label {
+    display: block;
+    padding: 5px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*#searchInput {
+    width: 100%; 
+    padding: 10px; 
+    border: 2px solid black; 
+    font-size: 16px; 
+}
+
+#searchInput:hover {
+    border-color: #333; 
+}*/
+
+
+
+.productItems {
+    flex-basis: calc(33.33% - 20px); 
+    
+    margin-left: 20px; /* Add margin to the right of each container */
+    margin-bottom: 20px; /* Add margin to the bottom of each container */
+    padding: 30px; /* Increase padding for each container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: transform 0.3s ease;
+}
+
+
+
+.productItems:hover {
+    transform: translateY(-5px); /* Move the container upwards on hover */
+}
+.productItems h6,
+.productItems h5 {
+    padding: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    animation:swipe;
+}
+
+.productItems h6 span {
+    text-decoration: line-through;
+}
+
+.productItems hr {
+    margin: 2px 0px 3px 0px;
+}
+
+.productItems img {
+    height: 15rem;
+    width: 100%;
+}
+/* Add to Cart button styling */
+.add-to-cart-btn {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make it inline-block */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor pointer */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+
